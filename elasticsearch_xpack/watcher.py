@@ -6,7 +6,7 @@ class WatcherClient(NamespacedClient):
         """
         `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
         """
-        return self.transport.perform_request('PUT', '/_xpack/watcher/_stop',
+        return self.transport.perform_request('POST', '/_xpack/watcher/_stop',
             params=params)
 
     @query_params('master_timeout')
@@ -40,7 +40,7 @@ class WatcherClient(NamespacedClient):
         """
         `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
         """
-        return self.transport.perform_request('PUT', '/_xpack/watcher/_start',
+        return self.transport.perform_request('POST', '/_xpack/watcher/_start',
             params=params)
 
     @query_params('master_timeout')
@@ -127,6 +127,6 @@ class WatcherClient(NamespacedClient):
         """
         `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
         """
-        return self.transport.perform_request('PUT', '/_xpack/watcher/_restart',
+        return self.transport.perform_request('POST', '/_xpack/watcher/_restart',
             params=params)
 
