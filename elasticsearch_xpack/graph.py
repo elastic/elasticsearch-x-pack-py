@@ -14,5 +14,5 @@ class GraphClient(NamespacedClient):
         :arg routing: Specific routing value
         :arg timeout: Explicit operation timeout
         """
-        return self.transport.perform_request('GET', _make_path(index, doc_type,
-            '_xpack', 'graph', '_explore'), params=params, body=body)
+        return self.transport.perform_request('POST', _make_path(index, doc_type,
+            '_xpack', '_graph', '_explore'), params=params, body=body)
