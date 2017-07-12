@@ -5,6 +5,9 @@ from .license import LicenseClient
 from .monitoring import MonitoringClient
 from .security import SecurityClient
 from .watcher import WatcherClient
+from .ml import MlClient
+from .migration import MigrationClient
+from .deprecation import DeprecationClient
 
 class XPackClient(AddonClient):
     namespace = 'xpack'
@@ -16,6 +19,9 @@ class XPackClient(AddonClient):
         self.monitoring = MonitoringClient(self.client)
         self.security = SecurityClient(self.client)
         self.watcher = WatcherClient(self.client)
+        self.ml = MlClient(self.client)
+        self.migration = MigrationClient(self.client)
+        self.deprecation = DeprecationClient(self.client)
 
     @query_params('categories', 'human')
     def info(self, params=None):
@@ -38,4 +44,3 @@ class XPackClient(AddonClient):
         """
         return self.transport.perform_request('GET', '/_xpack/usage',
             params=params)
-

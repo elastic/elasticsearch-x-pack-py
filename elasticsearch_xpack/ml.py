@@ -1,4 +1,4 @@
-from .utils import NamespacedClient, query_params, _make_path, SKIP_IN_PATH
+from elasticsearch.client.utils import NamespacedClient, query_params, _make_path, SKIP_IN_PATH
 
 class MlClient(NamespacedClient):
     @query_params('from_', 'size')
@@ -464,4 +464,3 @@ class MlClient(NamespacedClient):
         return self.transport.perform_request('DELETE', _make_path('_xpack',
             'ml', 'anomaly_detectors', job_id, 'model_snapshots', snapshot_id),
             params=params)
-

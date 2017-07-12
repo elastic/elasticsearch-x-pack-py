@@ -4,7 +4,8 @@ class WatcherClient(NamespacedClient):
     @query_params()
     def stop(self, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-stop.html>`_
         """
         return self.transport.perform_request('POST', '/_xpack/watcher/_stop',
             params=params)
@@ -12,11 +13,13 @@ class WatcherClient(NamespacedClient):
     @query_params('master_timeout')
     def ack_watch(self, watch_id, action_id=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-ack-watch.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-ack-watch.html>`_
 
         :arg watch_id: Watch ID
         :arg action_id: A comma-separated list of the action ids to be acked
-        :arg master_timeout: Specify timeout for watch write operation
+        :arg master_timeout: Explicit operation timeout for connection to master
+            node
         """
         if watch_id in SKIP_IN_PATH:
             raise ValueError("Empty value passed for a required argument 'watch_id'.")
@@ -26,7 +29,8 @@ class WatcherClient(NamespacedClient):
     @query_params('debug')
     def execute_watch(self, id=None, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-execute-watch.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-execute-watch.html>`_
 
         :arg id: Watch ID
         :arg body: Execution control
@@ -38,7 +42,8 @@ class WatcherClient(NamespacedClient):
     @query_params()
     def start(self, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-start.html>`_
         """
         return self.transport.perform_request('POST', '/_xpack/watcher/_start',
             params=params)
@@ -46,10 +51,12 @@ class WatcherClient(NamespacedClient):
     @query_params('master_timeout')
     def activate_watch(self, watch_id, params=None):
         """
-        `<https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-activate-watch>`_
+
+        `<https://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-activate-watch.html>`_
 
         :arg watch_id: Watch ID
-        :arg master_timeout: Specify timeout for watch write operation
+        :arg master_timeout: Explicit operation timeout for connection to master
+            node
         """
         if watch_id in SKIP_IN_PATH:
             raise ValueError("Empty value passed for a required argument 'watch_id'.")
@@ -59,10 +66,12 @@ class WatcherClient(NamespacedClient):
     @query_params('master_timeout')
     def deactivate_watch(self, watch_id, params=None):
         """
-        `<https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-deactivate-watch>`_
+
+        `<https://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-deactivate-watch.html>`_
 
         :arg watch_id: Watch ID
-        :arg master_timeout: Specify timeout for watch write operation
+        :arg master_timeout: Explicit operation timeout for connection to master
+            node
         """
         if watch_id in SKIP_IN_PATH:
             raise ValueError("Empty value passed for a required argument 'watch_id'.")
@@ -72,12 +81,14 @@ class WatcherClient(NamespacedClient):
     @query_params('active', 'master_timeout')
     def put_watch(self, id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-put-watch.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-put-watch.html>`_
 
         :arg id: Watch ID
         :arg body: The watch
         :arg active: Specify whether the watch is in/active by default
-        :arg master_timeout: Specify timeout for watch write operation
+        :arg master_timeout: Explicit operation timeout for connection to master
+            node
         """
         for param in (id, body):
             if param in SKIP_IN_PATH:
@@ -85,14 +96,15 @@ class WatcherClient(NamespacedClient):
         return self.transport.perform_request('PUT', _make_path('_xpack',
             'watcher', 'watch', id), params=params, body=body)
 
-    @query_params('force', 'master_timeout')
+    @query_params('master_timeout')
     def delete_watch(self, id, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-delete-watch.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-delete-watch.html>`_
 
         :arg id: Watch ID
-        :arg force: Specify if this request should be forced and ignore locks
-        :arg master_timeout: Specify timeout for watch write operation
+        :arg master_timeout: Explicit operation timeout for connection to master
+            node
         """
         if id in SKIP_IN_PATH:
             raise ValueError("Empty value passed for a required argument 'id'.")
@@ -102,7 +114,8 @@ class WatcherClient(NamespacedClient):
     @query_params()
     def get_watch(self, id, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-get-watch.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-get-watch.html>`_
 
         :arg id: Watch ID
         """
@@ -114,7 +127,8 @@ class WatcherClient(NamespacedClient):
     @query_params()
     def stats(self, metric=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-stats.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-stats.html>`_
 
         :arg metric: Controls what additional stat metrics should be include in
             the response
@@ -125,8 +139,9 @@ class WatcherClient(NamespacedClient):
     @query_params()
     def restart(self, params=None):
         """
-        `<http://www.elastic.co/guide/en/watcher/current/appendix-api-service.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/watcher-api-restart.html>`_
         """
-        return self.transport.perform_request('POST', '/_xpack/watcher/_restart',
-            params=params)
+        return self.transport.perform_request('POST',
+            '/_xpack/watcher/_restart', params=params)
 
