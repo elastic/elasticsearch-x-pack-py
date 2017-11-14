@@ -4,7 +4,6 @@ class MlClient(NamespacedClient):
     @query_params('from_', 'size')
     def get_filters(self, filter_id=None, params=None):
         """
-        `<>`_
 
         :arg filter_id: The ID of the filter to fetch
         :arg from_: skips a number of filters
@@ -16,7 +15,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def get_datafeeds(self, datafeed_id=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeeds to fetch
         """
@@ -26,7 +26,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def get_datafeed_stats(self, datafeed_id=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-datafeed-stats.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-datafeed-stats.html>`_
 
         :arg datafeed_id: The ID of the datafeeds stats to fetch
         """
@@ -37,7 +38,8 @@ class MlClient(NamespacedClient):
         'from_', 'size', 'sort', 'start')
     def get_buckets(self, job_id, timestamp=None, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-bucket.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-bucket.html>`_
 
         :arg job_id: ID of the job to get bucket results from
         :arg timestamp: The timestamp of the desired single bucket result
@@ -61,7 +63,8 @@ class MlClient(NamespacedClient):
     @query_params('reset_end', 'reset_start')
     def post_data(self, job_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-post-data.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-post-data.html>`_
 
         :arg job_id: The name of the job receiving the data
         :arg body: The data to process
@@ -80,7 +83,8 @@ class MlClient(NamespacedClient):
     @query_params('force', 'timeout')
     def stop_datafeed(self, datafeed_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-stop-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-stop-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to stop
         :arg force: True if the datafeed should be forcefully stopped.
@@ -95,7 +99,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def get_jobs(self, job_id=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-job.html>`_
 
         :arg job_id: The ID of the jobs to fetch
         """
@@ -105,7 +110,6 @@ class MlClient(NamespacedClient):
     @query_params()
     def delete_expired_data(self, params=None):
         """
-        `<>`_
         """
         return self.transport.perform_request('DELETE',
             '/_xpack/ml/_delete_expired_data', params=params)
@@ -113,7 +117,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def put_job(self, job_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-put-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-put-job.html>`_
 
         :arg job_id: The ID of the job to create
         :arg body: The job
@@ -127,7 +132,6 @@ class MlClient(NamespacedClient):
     @query_params()
     def validate_detector(self, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-valid-detector.html>`_
 
         :arg body: The detector
         """
@@ -140,7 +144,8 @@ class MlClient(NamespacedClient):
     @query_params('end', 'start', 'timeout')
     def start_datafeed(self, datafeed_id, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-start-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-start-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to start
         :arg body: The start datafeed parameters
@@ -159,7 +164,8 @@ class MlClient(NamespacedClient):
         'size', 'sort', 'start')
     def get_records(self, job_id, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-record.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-record.html>`_
 
         :arg job_id: None
         :arg body: Record selection criteria
@@ -181,7 +187,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def update_job(self, job_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-update-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-update-job.html>`_
 
         :arg job_id: The ID of the job to create
         :arg body: The job update settings
@@ -195,7 +202,6 @@ class MlClient(NamespacedClient):
     @query_params()
     def put_filter(self, filter_id, body, params=None):
         """
-        `<>`_
 
         :arg filter_id: The ID of the filter to create
         :arg body: The filter details
@@ -209,7 +215,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def update_datafeed(self, datafeed_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-update-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-update-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to update
         :arg body: The datafeed update settings
@@ -223,7 +230,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def preview_datafeed(self, datafeed_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-preview-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-preview-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to preview
         """
@@ -232,19 +240,22 @@ class MlClient(NamespacedClient):
         return self.transport.perform_request('GET', _make_path('_xpack', 'ml',
             'datafeeds', datafeed_id, '_preview'), params=params)
 
-    @query_params('advance_time', 'calc_interim', 'end', 'start')
+    @query_params('advance_time', 'calc_interim', 'end', 'skip_time', 'start')
     def flush_job(self, job_id, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-flush-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-flush-job.html>`_
 
         :arg job_id: The name of the job to flush
         :arg body: Flush parameters
-        :arg advance_time: Setting this tells the Engine API that no data prior
-            to advance_time is expected
+        :arg advance_time: Advances time to the given value generating results
+            and updating the model for the advanced interval
         :arg calc_interim: Calculates interim results for the most recent bucket
             or all buckets within the latency period
         :arg end: When used in conjunction with calc_interim, specifies the
             range of buckets on which to calculate interim results
+        :arg skip_time: Skips time to the given value without generating results
+            or updating the model for the skipped interval
         :arg start: When used in conjunction with calc_interim, specifies the
             range of buckets on which to calculate interim results
         """
@@ -256,7 +267,8 @@ class MlClient(NamespacedClient):
     @query_params('force', 'timeout')
     def close_job(self, job_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-close-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-close-job.html>`_
 
         :arg job_id: The name of the job to close
         :arg force: True if the job should be forcefully closed
@@ -271,7 +283,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def open_job(self, job_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-open-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-open-job.html>`_
 
         :arg job_id: The ID of the job to open
         """
@@ -283,7 +296,8 @@ class MlClient(NamespacedClient):
     @query_params('force')
     def delete_job(self, job_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-delete-job.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-delete-job.html>`_
 
         :arg job_id: The ID of the job to delete
         :arg force: True if the job should be forcefully deleted
@@ -296,7 +310,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def update_model_snapshot(self, job_id, snapshot_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-update-snapshot.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-update-snapshot.html>`_
 
         :arg job_id: The ID of the job to fetch
         :arg snapshot_id: The ID of the snapshot to update
@@ -312,7 +327,6 @@ class MlClient(NamespacedClient):
     @query_params()
     def delete_filter(self, filter_id, params=None):
         """
-        `<>`_
 
         :arg filter_id: The ID of the filter to delete
         """
@@ -324,7 +338,6 @@ class MlClient(NamespacedClient):
     @query_params()
     def validate(self, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-valid-job.html>`_
 
         :arg body: The job config
         """
@@ -336,7 +349,8 @@ class MlClient(NamespacedClient):
     @query_params('from_', 'size')
     def get_categories(self, job_id, category_id=None, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-category.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-category.html>`_
 
         :arg job_id: The name of the job
         :arg category_id: The identifier of the category definition of interest
@@ -354,7 +368,8 @@ class MlClient(NamespacedClient):
         'size', 'sort', 'start')
     def get_influencers(self, job_id, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-influencer.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-influencer.html>`_
 
         :arg job_id: None
         :arg body: Influencer selection criteria
@@ -377,7 +392,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def put_datafeed(self, datafeed_id, body, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-put-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-put-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to create
         :arg body: The datafeed config
@@ -391,7 +407,8 @@ class MlClient(NamespacedClient):
     @query_params('force')
     def delete_datafeed(self, datafeed_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-delete-datafeed.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-delete-datafeed.html>`_
 
         :arg datafeed_id: The ID of the datafeed to delete
         :arg force: True if the datafeed should be forcefully deleted
@@ -404,7 +421,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def get_job_stats(self, job_id=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-job-stats.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-job-stats.html>`_
 
         :arg job_id: The ID of the jobs stats to fetch
         """
@@ -412,9 +430,10 @@ class MlClient(NamespacedClient):
             'anomaly_detectors', job_id, '_stats'), params=params)
 
     @query_params('delete_intervening_results')
-    def revert_model_snapshot(self, job_id, snapshot_id=None, body=None, params=None):
+    def revert_model_snapshot(self, job_id, snapshot_id, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-revert-snapshot.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-revert-snapshot.html>`_
 
         :arg job_id: The ID of the job to fetch
         :arg snapshot_id: The ID of the snapshot to revert to
@@ -422,8 +441,9 @@ class MlClient(NamespacedClient):
         :arg delete_intervening_results: Should we reset the results back to the
             time of the snapshot?
         """
-        if job_id in SKIP_IN_PATH:
-            raise ValueError("Empty value passed for a required argument 'job_id'.")
+        for param in (job_id, snapshot_id):
+            if param in SKIP_IN_PATH:
+                raise ValueError("Empty value passed for a required argument.")
         return self.transport.perform_request('POST', _make_path('_xpack', 'ml',
             'anomaly_detectors', job_id, 'model_snapshots', snapshot_id,
             '_revert'), params=params, body=body)
@@ -431,7 +451,8 @@ class MlClient(NamespacedClient):
     @query_params('desc', 'end', 'from_', 'size', 'sort', 'start')
     def get_model_snapshots(self, job_id, snapshot_id=None, body=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-get-snapshot.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-get-snapshot.html>`_
 
         :arg job_id: The ID of the job to fetch
         :arg snapshot_id: The ID of the snapshot to fetch
@@ -453,7 +474,8 @@ class MlClient(NamespacedClient):
     @query_params()
     def delete_model_snapshot(self, job_id, snapshot_id, params=None):
         """
-        `<http://www.elastic.co/guide/en/x-pack/current/ml-delete-snapshot.html>`_
+
+        `<http://www.elastic.co/guide/en/elasticsearch/reference/current/ml-delete-snapshot.html>`_
 
         :arg job_id: The ID of the job to fetch
         :arg snapshot_id: The ID of the snapshot to delete
@@ -464,3 +486,4 @@ class MlClient(NamespacedClient):
         return self.transport.perform_request('DELETE', _make_path('_xpack',
             'ml', 'anomaly_detectors', job_id, 'model_snapshots', snapshot_id),
             params=params)
+

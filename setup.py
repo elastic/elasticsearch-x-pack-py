@@ -2,7 +2,7 @@
 from os.path import join, dirname
 from setuptools import setup, find_packages
 
-VERSION = (5, 0, 0)
+VERSION = (6, 0, 0)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 
@@ -11,7 +11,7 @@ long_description = f.read().strip()
 f.close()
 
 install_requires = [
-    'elasticsearch>=5.0.0, <6.0.0',
+    'elasticsearch>=6.0.0, <7.0.0',
 ]
 
 setup(

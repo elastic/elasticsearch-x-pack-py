@@ -4,7 +4,8 @@ class LicenseClient(NamespacedClient):
     @query_params()
     def delete(self, params=None):
         """
-        `<https://www.elastic.co/guide/en/shield/current/license-management.html>`_
+
+        `<https://www.elastic.co/guide/en/x-pack/current/license-management.html>`_
         """
         return self.transport.perform_request('DELETE', '/_xpack/license',
             params=params)
@@ -12,7 +13,8 @@ class LicenseClient(NamespacedClient):
     @query_params('local')
     def get(self, params=None):
         """
-        `<https://www.elastic.co/guide/en/shield/current/license-management.html>`_
+
+        `<https://www.elastic.co/guide/en/x-pack/current/license-management.html>`_
 
         :arg local: Return local information, do not retrieve the state from
             master node (default: false)
@@ -23,7 +25,8 @@ class LicenseClient(NamespacedClient):
     @query_params('acknowledge')
     def post(self, body=None, params=None):
         """
-        `<https://www.elastic.co/guide/en/shield/current/license-management.html>`_
+
+        `<https://www.elastic.co/guide/en/x-pack/current/license-management.html>`_
 
         :arg body: licenses to be installed
         :arg acknowledge: whether the user has acknowledged acknowledge messages

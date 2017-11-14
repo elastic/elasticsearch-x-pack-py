@@ -4,7 +4,7 @@ class GraphClient(NamespacedClient):
     @query_params('routing', 'timeout')
     def explore(self, index=None, doc_type=None, body=None, params=None):
         """
-        `<https://www.elastic.co/guide/en/graph/current/explore.html>`_
+        `<https://www.elastic.co/guide/en/elasticsearch/reference/current/graph-explore-api.html>`_
 
         :arg index: A comma-separated list of index names to search; use `_all`
             or empty string to perform the operation on all indices
@@ -14,5 +14,5 @@ class GraphClient(NamespacedClient):
         :arg routing: Specific routing value
         :arg timeout: Explicit operation timeout
         """
-        return self.transport.perform_request('POST', _make_path(index, doc_type,
-            '_xpack', '_graph', '_explore'), params=params, body=body)
+        return self.transport.perform_request('GET', _make_path(index, doc_type,
+            '_xpack', 'graph', '_explore'), params=params, body=body)

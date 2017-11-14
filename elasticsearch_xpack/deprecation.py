@@ -4,7 +4,7 @@ class DeprecationClient(NamespacedClient):
     @query_params()
     def info(self, index=None, params=None):
         """
-        `<http://www.elastic.co/guide/en/migration/current/appendix-api-deprecation-info.html>`_
+        `<http://www.elastic.co/guide/en/migration/current/migration-api-deprecation.html>`_
 
         :arg index: Index pattern
         """

@@ -124,7 +124,7 @@ class WatcherClient(NamespacedClient):
         return self.transport.perform_request('GET', _make_path('_xpack',
             'watcher', 'watch', id), params=params)
 
-    @query_params()
+    @query_params('emit_stacktraces')
     def stats(self, metric=None, params=None):
         """
 
@@ -132,6 +132,7 @@ class WatcherClient(NamespacedClient):
 
         :arg metric: Controls what additional stat metrics should be include in
             the response
+        :arg emit_stacktraces: Emits stack traces of currently running watches
         """
         return self.transport.perform_request('GET', _make_path('_xpack',
             'watcher', 'stats', metric), params=params)

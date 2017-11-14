@@ -4,7 +4,7 @@ class MigrationClient(NamespacedClient):
     @query_params('allow_no_indices', 'expand_wildcards', 'ignore_unavailable')
     def get_assistance(self, index=None, params=None):
         """
-        `<>`_
+        `<https://www.elastic.co/guide/en/elasticsearch/reference/current/migration-api-assistance.html>`_
 
         :arg index: A comma-separated list of index names; use `_all` or empty
             string to perform the operation on all indices
@@ -20,12 +20,15 @@ class MigrationClient(NamespacedClient):
         return self.transport.perform_request('GET', _make_path('_xpack',
             'migration', 'assistance', index), params=params)
 
-    @query_params()
+    @query_params('wait_for_completion')
     def upgrade(self, index, params=None):
         """
-        `<>`_
+
+        `<https://www.elastic.co/guide/en/elasticsearch/reference/current/migration-api-upgrade.html>`_
 
         :arg index: The name of the index
+        :arg wait_for_completion: Should the request block until the upgrade
+            operation is completed, default True
         """
         if index in SKIP_IN_PATH:
             raise ValueError("Empty value passed for a required argument 'index'.")
